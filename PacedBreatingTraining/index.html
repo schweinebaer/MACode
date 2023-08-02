@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4:6 Paced breathing training</title>
+    <style>
+      body {
+        background-color: #f8f6f4;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+      }
+
+      #title {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+
+      #circle {
+        margin-top: 210px;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        animation: breathe 10s infinite;
+      }
+
+      #circle-border {
+        margin-top: 285px;
+        position: absolute;
+        width: 298px;
+        height: 298px;
+        border-radius: 50%;
+        border: 2px rgba(156, 156, 156, 0.396) solid;
+      }
+
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(0.5);
+          background-color: #e3f4f4;
+        }
+
+        40% {
+          transform: scale(300);
+          background-color: #c4dfdf;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="title" style="margin: 0px">Paced breathing training</h1>
+      <h2 id="title" style="margin: 10px 0 0 0; font-weight: 400">
+        4 sec. inhale - 6 sec. exhale
+      </h2>
+      <div id="circle"></div>
+      <div id="circle-border"></div>
+    </div>
+  </body>
+</html>

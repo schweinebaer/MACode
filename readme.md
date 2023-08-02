@@ -3,9 +3,9 @@
 
 Master’s Thesis · Bauhaus-Universität Weimar · Faculty of Media · Human-Computer Interaction (HCI) M.Sc.
 
----
-
 This repository contains all the necessary files to carry out the data recording section of the thesis. Below, you will find a detailed description for each participant, outlining the steps involved.
+
+---
 
 ### Preparation per participant
 
@@ -20,6 +20,6 @@ This repository contains all the necessary files to carry out the data recording
 7. *6-generateShamSound.py*
 
 ### Sham and real audio biofeedback files
-8. *playSham"ParticipantId".mp3*
-9. *playReal.py*
+1. *playSham"ParticipantId".mp3*
+2. *playReal.py*
 
