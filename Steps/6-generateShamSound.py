@@ -35,7 +35,7 @@ def generate_audio_file(start_bpm, end_bpm, heartbeat_file):
 
 
 # Example usage
-start_bpm = 48
+start_bpm = 53
 end_bpm = start_bpm * 0.5  # 50% of the starting BPM
 heartbeat_file = "/Users/benediktbreitschopf/Library/CloudStorage/GoogleDrive-benedikt.breitschopf@gmail.com/Meine Ablage/MA/heartbeatsound3.wav"
 

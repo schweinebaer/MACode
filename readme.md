@@ -23,3 +23,7 @@ This repository contains all the necessary files to carry out the data recording
 1. *playSham"ParticipantId".mp3*
 2. *playReal.py*
 
+
+Blue 5V
+White GND
+Green A3

@@ -1,7 +1,6 @@
 import serial.tools.list_ports
 import os
 import csv
-import pygame
 import time
 from datetime import datetime
 from dotenv import load_dotenv
@@ -18,17 +17,6 @@ serialInst.open()
 
 data = []
 
-# Initialize Pygame
-pygame.init()
-
-# Load the heartbeat sound
-heartbeat_sound = pygame.mixer.Sound("/Users/benediktbreitschopf/Library/CloudStorage/GoogleDrive-benedikt.breitschopf@gmail.com/Meine Ablage/MA/heartbeatsound3.wav")
-
-
-def play_heartbeat_sound():
-    heartbeat_sound.play()
-
-
 # Run the program for 1 minutes
 end_time = time.time() + 5 * 60
 
@@ -41,20 +29,13 @@ while time.time() < end_time:
         
         # Add the timestamp and value to the data array
         data.append([timestamp, value])
-
         print(data)
-        try:
-            if 1 < int(value) < 120:
-                 play_heartbeat_sound()
-        except:
-            print("An exception occurred")
 
 # Clean up resources
 serialInst.close()
-pygame.quit()
 
 # Save the data to a CSV file
-filename = f"realHeartRate{os.getenv('USER_ID')}.csv"
+filename = f"baseHeartRate{os.getenv('USER_ID')}.csv"
 with open(filename, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['Timestamp', 'Value'])  # Write header

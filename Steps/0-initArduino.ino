@@ -21,7 +21,7 @@
 
 
 //  Variables
-int PulseSensorPurplePin = 0;        // Pulse Sensor PURPLE WIRE connected to ANALOG PIN 0
+int PulseSensorPurplePin = 3;        // Pulse Sensor PURPLE WIRE connected to ANALOG PIN 3
 int LED = LED_BUILTIN;   //  The on-board Arduion LED
 
 
