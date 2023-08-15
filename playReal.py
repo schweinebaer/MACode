@@ -29,7 +29,7 @@ def play_heartbeat_sound():
     heartbeat_sound.play()
 
 
-# Run the program for 1 minutes
+# Run the program for 5 minutes
 end_time = time.time() + 5 * 60
 
 
