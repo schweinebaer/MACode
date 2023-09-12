@@ -1,5 +1,8 @@
 from pydub import AudioSegment
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def generate_audio_file(start_bpm, end_bpm, heartbeat_file):
     # Load the heartbeat sound
@@ -35,7 +38,7 @@ def generate_audio_file(start_bpm, end_bpm, heartbeat_file):
 
 
 # Example usage
-start_bpm = 61
+start_bpm = 50
 end_bpm = start_bpm * 0.5  # 50% of the starting BPM
 heartbeat_file = "/Users/benediktbreitschopf/Library/CloudStorage/GoogleDrive-benedikt.breitschopf@gmail.com/Meine Ablage/MA/heartbeatsound3.wav"
 
