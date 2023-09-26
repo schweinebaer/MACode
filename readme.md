@@ -17,12 +17,16 @@ This repository contains all the necessary files to carry out the data recording
 4. *3-defineThreshold.py*
 5. *4-setupArduino.ino*
 6. *5-calculateAvgBPM.py*
-7. *6-generateShamSound.py*
+7. *6-6-displayAndCalculateAvg.py*
+8. *7-generateShamSound.py*
 
 ### Sham and real audio biofeedback files
-1. *playSham"ParticipantId".mp3*
-2. *playReal.py*
+1. *playSham.py*: Plays the sham audio file records heart beats
+2. *playReal.py*: Plays live heart beats and records heart beats
+2. *playBase.py*: Records heart beats. No sound is played.
 
+
+### Arduino wire mapping
 
 Blue 5V
 White GND

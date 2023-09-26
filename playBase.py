@@ -17,8 +17,8 @@ serialInst.open()
 
 data = []
 
-# Run the program for 5 minutes
-end_time = time.time() + 5 * 60
+# Run the program for 8 minutes
+end_time = time.time() + 8 * 60
 
 
 while time.time() < end_time:
@@ -28,8 +28,8 @@ while time.time() < end_time:
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
         
         # Add the timestamp and value to the data array
-        data.append([timestamp, value])
-        print(data)
+        data.append([timestamp])
+        print(timestamp)
 
 # Clean up resources
 serialInst.close()
@@ -38,7 +38,7 @@ serialInst.close()
 filename = f"baseHeartRate{os.getenv('USER_ID')}.csv"
 with open(filename, mode='w', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(['Timestamp', 'Value'])  # Write header
+    writer.writerow(['Timestamp'])  # Write header
     writer.writerows(data)  # Write data rows
 
 print(f"Data saved to {filename}.")

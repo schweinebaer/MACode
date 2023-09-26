@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-participantId = 0
+participantId = 3
 
 # Load the CSV file into a Pandas DataFrame
 dataBase = pd.read_csv(
@@ -35,7 +35,7 @@ df2['HeartRate'] = 60 / df2['TimeDiff']
 df3['HeartRate'] = 60 / df3['TimeDiff']
 
 # Calculate rolling averages 
-rolling_window = 50
+rolling_window = 60
 df1['RollingAverage'] = df1['HeartRate'].rolling(rolling_window).mean()
 df2['RollingAverage'] = df2['HeartRate'].rolling(rolling_window).mean()
 df3['RollingAverage'] = df3['HeartRate'].rolling(rolling_window).mean()

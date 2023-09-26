@@ -1,6 +1,0 @@
-I have a dataset in the form of an array containing timestamps in the format of ["2023-08-08 20:00:40.817", 2023-08-08 20:00:41.878, ...]" of a participant's heartbeat over a duration of 5 minutes. write me a python script that plots me some meaningful diagrams that i can use to interpret the data
-
-write me a python script that conversts my csv file which contains data in the following format "Timestamp,Value
-2023-08-08 20:00:40.817,47
-2023-08-08 20:00:41.878,48
-2023-08-08 20:00:42.975,49" to an array that only contains the Timestamps.
