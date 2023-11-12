@@ -25,7 +25,7 @@ pygame.init()
 heartbeat_sound = pygame.mixer.Sound(f"/Users/benediktbreitschopf/Documents/Projects/MACode/shamSound{os.getenv('USER_ID')}.mp3")
 heartbeat_sound.play()
 
-# Run the program for 5 minutes
+# Run the program for 8 minutes
 end_time = time.time() + 8 * 60
 
 

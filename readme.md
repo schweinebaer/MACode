@@ -28,6 +28,6 @@ This repository contains all the necessary files to carry out the data recording
 
 ### Arduino wire mapping
 
-Blue 5V
-White GND
-Green A3
+Orange 5V
+Yellow GND
+Red A3

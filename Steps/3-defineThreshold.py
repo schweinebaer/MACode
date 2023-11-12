@@ -20,9 +20,9 @@ x = data["Timestamp"]
 y = data["Value"]
 
 # Find peaks with a minimum prominence
-peaks, _ = find_peaks(y, prominence=8)
+peaks, _ = find_peaks(y, prominence=400)
 average_peak = y[peaks].mean()
-suggested_treshold = (average_peak - median_pulse) * 0.6 + median_pulse
+suggested_treshold = (average_peak - median_pulse) * 0.75 + median_pulse
 
 print(f"Median Pulse: {median_pulse}")
 print(f"Average Peak: {average_peak}")
