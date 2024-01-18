@@ -18,7 +18,7 @@ serialInst.open()
 data = []
 
 # Run the program for 1 minutes
-end_time = time.time() + 1 * 60
+end_time = time.time() + 1 * 20
 
 
 while time.time() < end_time:
