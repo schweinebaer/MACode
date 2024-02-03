@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-participantId = 15
+participantId = 1
 
 # Load the CSV file into a Pandas DataFrame
 dataBase = pd.read_csv(
