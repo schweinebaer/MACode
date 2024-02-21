@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 import matplotlib.dates as mdates
+from zScoreMethod import detect_outliers_z_score
+from replaceWithMedian import replace_outliers_with_median
 
 
 def averagePerParticipant(participantId):
@@ -125,17 +127,28 @@ def averagePerParticipant(participantId):
     for beat in beatsBase:
         graphBeatsBase.append(len(beat))
 
+    graphBeatsBaseAfterOutlierDetectionAndReplacement = replace_outliers_with_median(
+        graphBeatsBase, detect_outliers_z_score(graphBeatsBase, threshold=3)
+    )
+    print("Participant Base", participantId, ": ")
+    print(
+        sum(graphBeatsBaseAfterOutlierDetectionAndReplacement)
+        / len(graphBeatsBaseAfterOutlierDetectionAndReplacement)
+    )
+
     graphBeatsBaseAvg = []
-    for i, graphBeatBase in enumerate(graphBeatsBase):
-        if i < 2 or i >= len(graphBeatsBase) - 2:
+    for i, graphBeatBase in enumerate(
+        graphBeatsBaseAfterOutlierDetectionAndReplacement
+    ):
+        if i < 2 or i >= len(graphBeatsBaseAfterOutlierDetectionAndReplacement) - 2:
             continue
         graphBeatsBaseAvg.append(
             (
-                graphBeatsBase[i - 2]
-                + graphBeatsBase[i - 1]
+                graphBeatsBaseAfterOutlierDetectionAndReplacement[i - 2]
+                + graphBeatsBaseAfterOutlierDetectionAndReplacement[i - 1]
                 + graphBeatBase
-                + graphBeatsBase[i + 1]
-                + graphBeatsBase[i + 2]
+                + graphBeatsBaseAfterOutlierDetectionAndReplacement[i + 1]
+                + graphBeatsBaseAfterOutlierDetectionAndReplacement[i + 2]
             )
             / 5
         )
@@ -144,17 +157,28 @@ def averagePerParticipant(participantId):
     for beat in beatsReal:
         graphBeatsReal.append(len(beat))
 
+    graphBeatsRealAfterOutlierDetectionAndReplacement = replace_outliers_with_median(
+        graphBeatsReal, detect_outliers_z_score(graphBeatsReal, threshold=3)
+    )
+    print("Participant Real", participantId, ": ")
+    print(
+        sum(graphBeatsRealAfterOutlierDetectionAndReplacement)
+        / len(graphBeatsRealAfterOutlierDetectionAndReplacement)
+    )
+
     graphBeatsRealAvg = []
-    for i, graphBeatReal in enumerate(graphBeatsReal):
-        if i < 2 or i >= len(graphBeatsReal) - 2:
+    for i, graphBeatReal in enumerate(
+        graphBeatsRealAfterOutlierDetectionAndReplacement
+    ):
+        if i < 2 or i >= len(graphBeatsRealAfterOutlierDetectionAndReplacement) - 2:
             continue
         graphBeatsRealAvg.append(
             (
-                graphBeatsReal[i - 2]
-                + graphBeatsReal[i - 1]
+                graphBeatsRealAfterOutlierDetectionAndReplacement[i - 2]
+                + graphBeatsRealAfterOutlierDetectionAndReplacement[i - 1]
                 + graphBeatReal
-                + graphBeatsReal[i + 1]
-                + graphBeatsReal[i + 2]
+                + graphBeatsRealAfterOutlierDetectionAndReplacement[i + 1]
+                + graphBeatsRealAfterOutlierDetectionAndReplacement[i + 2]
             )
             / 5
         )
@@ -163,17 +187,29 @@ def averagePerParticipant(participantId):
     for beat in beatsSham:
         graphBeatsSham.append(len(beat))
 
+    graphBeatsShamAfterOutlierDetectionAndReplacement = replace_outliers_with_median(
+        graphBeatsSham, detect_outliers_z_score(graphBeatsSham, threshold=3)
+    )
+
+    print("Participant Sham", participantId, ": ")
+    print(
+        sum(graphBeatsShamAfterOutlierDetectionAndReplacement)
+        / len(graphBeatsShamAfterOutlierDetectionAndReplacement)
+    )
+
     graphBeatsShamAvg = []
-    for i, graphBeatSham in enumerate(graphBeatsSham):
-        if i < 2 or i >= len(graphBeatsSham) - 2:
+    for i, graphBeatSham in enumerate(
+        graphBeatsShamAfterOutlierDetectionAndReplacement
+    ):
+        if i < 2 or i >= len(graphBeatsShamAfterOutlierDetectionAndReplacement) - 2:
             continue
         graphBeatsShamAvg.append(
             (
-                graphBeatsSham[i - 2]
-                + graphBeatsSham[i - 1]
+                graphBeatsShamAfterOutlierDetectionAndReplacement[i - 2]
+                + graphBeatsShamAfterOutlierDetectionAndReplacement[i - 1]
                 + graphBeatSham
-                + graphBeatsSham[i + 1]
-                + graphBeatsSham[i + 2]
+                + graphBeatsShamAfterOutlierDetectionAndReplacement[i + 1]
+                + graphBeatsShamAfterOutlierDetectionAndReplacement[i + 2]
             )
             / 5
         )
@@ -197,10 +233,10 @@ def plotGraph(base, real, sham, participantId):
     plt.savefig(f"Heart Rate - Participant {participantId}.png")
     plt.show()
 
+
 # for i in range(13):
 #     if i == 0 or i >= 13:
 #         continue
 #     participantId = i
 #     base, real, sham = averagePerParticipant(participantId)
 #     plotGraph(base, real, sham, participantId)
-
